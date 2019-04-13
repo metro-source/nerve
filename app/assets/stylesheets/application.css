@@ -1,0 +1,163 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ * {
+    box-sizing: border-box;
+}
+:scope {
+    --dark-green: #009990;
+    --darker-green: #01635c;
+    --light-green: #3ac7ad;
+    --main-border: 2px solid rgba(0,0,0,0.1);
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #eee;
+}
+
+.billed-item-container {
+    background: #fff;
+    width: 100%;
+    border-radius: 0 5px 5px 5px;
+    padding: 0 5px;
+    border-bottom: var(--main-border);
+    border-right: var(--main-border);
+}
+ 
+.billed-item {
+    text-align: center;
+}
+
+.billed-item td {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+
+.billed-item:nth-child(2n) {
+    background: #eee;
+}
+
+@media screen and (min-width: 800px) {
+    .wrap {
+        margin: 0 auto;
+        width: 800px;
+    }
+}
+
+.paybtn {
+    background: var(--light-green);
+    border: 0 solid transparent;
+    border-bottom: 2px solid var(--dark-green);
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 10px 0;
+    padding: 10px;
+    cursor: pointer;
+    text-shadow: 0 1px 0 var(--dark-green);
+}
+
+.paybtn:hover {
+    background: var(--dark-green);
+}
+
+.paybtn:active {
+    background: var(--darker-green);
+}
+
+.client {
+    background: #fff;
+    width: 200px;
+    border-radius: 5px 5px 0 0;
+    padding: 10px;
+    padding-top: 0px;
+}
+
+.client-label {
+    font-size: 0.65em;
+    text-transform: uppercase;
+    color: var(--light-green);
+    font-weight: bold;
+}
+
+.billed-item-name {
+    padding-left: 5px;
+    text-align: left;
+}
+
+.billed-item-total {
+    text-align: right;
+    padding-right: 5px;
+}
+
+.bch-modal {
+    display: none;
+    padding-top: 20px;
+}
+
+.bch-modal.visible {
+    display: block;
+}
+
+.bch-address {
+    padding: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    width: 100%;
+}
+
+.table-footer {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.total-display {
+    justify-self: flex-end;
+    background: #fff;
+    padding: 5px;
+    min-width: 100px;
+    text-align: center;
+}
+
+.total-label {
+    font-size: 0.65em;
+    text-transform: uppercase;
+    color: var(--light-green);
+    font-weight: bold;
+}
+
+.total-price {
+    font-size: 1.2em;
+    padding: 5px 0;
+    font-weight: bold;
+    color: var(--darker-green);
+}
+
+.main-title {
+    text-shadow: 1px 1px 0 #fff;
+
+}
+
+.address-svg {
+    text-align: center;
+    padding: 10px;
+}

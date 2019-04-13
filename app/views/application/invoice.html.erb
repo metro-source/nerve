@@ -1,0 +1,65 @@
+<% @title = "Invoice ##{sprintf "%04d", @invoice.id}"%>
+<main class="wrap">
+    <h1 class="main-title">Invoice</h1> 
+    
+    <div class="client">
+        <span class="client-label">Client</span>
+        <div>
+            <%= @invoice.client_name %>
+        </div>
+    </div>
+
+    <table class="billed-item-container">
+        <thead>
+            <tr class="billed-item">
+                <th class="billed-item-name">Item</th>
+                <th class="billed-item-time">Time</th>
+                <th class="billed-item-rate">Rate</th>
+                <th class="billed-item-total">Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        <% @invoice.billed_items.each do |billed_item| %>
+            <tr class="billed-item">
+                <td class="billed-item-name"><%= billed_item.title %></td>
+                <td class="billed-item-time"><%= billed_item.duration %></td>
+                <td class="billed-item-rate"><%= number_to_currency(billed_item.rate_cents / 100.0) %></td>
+                <td class="billed-item-total"><%= number_to_currency(billed_item.price / 100.0) %></td>
+            </tr>
+        <% end %>
+        </tbody>
+    </table>
+    
+    <div class="table-footer">
+        <button class="paybtn paybch">
+            Pay with Bitcoin Cash
+        </button>
+
+        <div class="total-display">
+            <span class="total-label">
+                Total
+            </span>
+            <div class="total-price">
+                <%= number_to_currency(@invoice.total_cents/100.0) %>
+            </div>
+        </div>
+    </div>
+
+    <div class="bch-modal">
+            <span>Send <abbrv class="bch-amount"></abbrv> to the following <b>Bitcoin Cash</b> address</span>
+            <input class="bch-address" onclick="this.select()" type="text" value="<%= @bch_address %>" readonly aria-readonly="true">
+            <div class="address-svg">
+                <%= raw RQRCode::QRCode.new(@bch_address).as_svg({color: '01635c', module_size: 5}) %>
+            </div>
+    </div>
+</main>
+
+<%= javascript_include_tag 'invoices', 'data-turbolinks-track': 'reload' %>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", () => {
+        document.querySelector(".paybch").addEventListener("click", () => 
+            toggleBCHModal(<%= @invoice.total_cents/100.0 %>)
+        )
+    })
+</script>

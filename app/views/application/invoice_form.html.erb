@@ -1,0 +1,14 @@
+<main class="wrap">
+    <%= form_tag({action: "create_invoice"},multipart: true) do %>
+        <label>
+            Client Name
+            <input name="client_name" type="text">
+        </label>
+        <label>
+            Upload the CSV file here
+            <input name=csv required type="file">
+        </label>
+
+        <button type="submit">Create</button>
+    <% end %>
+</main>
