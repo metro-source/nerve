@@ -1,26 +1,26 @@
-async function getBCHPrice() {
-    let json = await fetch(`https://api.coinbase.com/v2/exchange-rates?currency=BCH`).then(response => response.json())
+async function getCoinPrice(coin = 'BCH') {
+    let json = await fetch(`https://api.coinbase.com/v2/exchange-rates?currency=${coin}`).then(response => response.json())
 
     return parseFloat(json.data.rates.USD);
 }
 
-async function getBCHEquivalent(usdAmount) {
+async function getCoinEquivalent(usdAmount, coin = 'BCH') {
     let element = document.querySelector(".bch-amount");
     element.innerHTML = 'calculating...';
 
-    let usdRate = await getBCHPrice();
+    let usdRate = await getCoinPrice(coin);
 
     let amount = parseFloat(usdAmount);
 
     let equivalent = amount / usdRate;
     console.log(amount, usdRate);
     
-    element.innerHTML = `${equivalent.toFixed(2)} BCH`;
-    element.setAttribute('title', `1 BCH = ${usdRate} USD`);
+    element.innerHTML = `${equivalent.toFixed(2)} ${coin}`;
+    element.setAttribute('title', `1 ${coin} = ${usdRate} USD (Coinbase)`);
 }
 
 
 function toggleBCHModal(usdAmount) {
-    getBCHEquivalent(usdAmount);
+    getCoinEquivalent(usdAmount);
     document.querySelector('.bch-modal').classList.toggle('visible');
 }

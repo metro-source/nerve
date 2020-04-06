@@ -47,7 +47,7 @@
     </div>
 
     <div class="bch-modal">
-            <span>Send <abbrv class="bch-amount"></abbrv> to the following <b>Bitcoin Cash</b> address</span>
+            <span>Send <abbrv class="bch-amount"></abbrv> to the following <b>Bitcoin</b> address</span>
             <input class="bch-address" onclick="this.select()" type="text" value="<%= @bch_address %>" readonly aria-readonly="true">
             <div class="address-svg">
                 <%= raw RQRCode::QRCode.new(@bch_address).as_svg({color: '01635c', module_size: 5}) %>

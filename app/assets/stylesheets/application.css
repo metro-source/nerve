@@ -14,9 +14,13 @@
  *= require_self
  */
 
- * {
+* {
     box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
 }
+
 :scope {
     --dark-green: #009990;
     --darker-green: #01635c;
@@ -161,3 +165,8 @@ body {
     text-align: center;
     padding: 10px;
 }
+
+
+/**
+*= require header
+*/

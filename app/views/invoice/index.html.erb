@@ -1,0 +1,22 @@
+<main class="Dashboard">
+    <div class="DashboardItem">
+        <img src="<%= asset_path "invoice.jpg" %>" class="DashboardIcon" />
+        <div class="InvoiceStats">
+            <b class="DashboardTitle">Invoice Stats</b>
+            <ul>
+                <li><%= @invoice_count %> Invoices</li>
+                <li>$<%= @total_billed %> Billed</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="DashboardItem">
+        <img src="<%= asset_path "users.jpg" %>" class="DashboardIcon"/>
+        <div class="InvoiceStats">
+            <b class="DashboardTitle">Clients</b>
+            <ul>
+                <li>Total clients: <%= @client_count %></li>
+            </ul>
+        </div>
+    </div>
+</main>

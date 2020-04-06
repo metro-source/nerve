@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_13_053548) do
+ActiveRecord::Schema.define(version: 2019_06_01_215257) do
 
   create_table "billed_items", force: :cascade do |t|
     t.string "title"
@@ -21,12 +21,30 @@ ActiveRecord::Schema.define(version: 2019_04_13_053548) do
     t.index ["invoice_id"], name: "index_billed_items_on_invoice_id"
   end
 
+  create_table "clients", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "invoices", force: :cascade do |t|
     t.string "slug", limit: 40
     t.string "client_name"
     t.integer "total_cents"
     t.integer "status", default: 0
+    t.integer "client_id"
+    t.index ["client_id"], name: "index_invoices_on_client_id"
     t.index ["slug"], name: "index_invoices_on_slug"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "name"
+    t.string "password_digest"
+    t.integer "role", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email"
   end
 
 end

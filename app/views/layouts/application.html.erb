@@ -9,6 +9,11 @@
   </head>
 
   <body>
+    <% if @current_user.present? %>
+      <%= render "partials/nav" %>
+    <% end %>
+    
+    <%= render "partials/flash" %>
     <%= yield %>
   </body>
 </html>
