@@ -20,7 +20,7 @@ async function getCoinEquivalent(usdAmount, coin = 'BCH') {
 }
 
 
-function toggleBCHModal(usdAmount) {
-    getCoinEquivalent(usdAmount);
+function toggleBCHModal(usdAmount, coin = 'BCH') {
+    getCoinEquivalent(usdAmount, coin);
     document.querySelector('.bch-modal').classList.toggle('visible');
 }

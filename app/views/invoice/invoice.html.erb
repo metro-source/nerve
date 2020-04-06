@@ -48,9 +48,9 @@
 
     <div class="bch-modal">
             <span>Send <abbrv class="bch-amount"></abbrv> to the following <b>Bitcoin</b> address</span>
-            <input class="bch-address" onclick="this.select()" type="text" value="<%= @bch_address %>" readonly aria-readonly="true">
+            <input class="bch-address" onclick="this.select()" type="text" value="<%= @btc_address %>" readonly aria-readonly="true">
             <div class="address-svg">
-                <%= raw RQRCode::QRCode.new(@bch_address).as_svg({color: '01635c', module_size: 5}) %>
+                <%= raw RQRCode::QRCode.new(@btc_address).as_svg({color: '01635c', module_size: 5}) %>
             </div>
     </div>
 </main>
@@ -59,7 +59,7 @@
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", () => {
         document.querySelector(".paybch").addEventListener("click", () => 
-            toggleBCHModal(<%= @invoice.total_cents/100.0 %>)
+            toggleBCHModal(<%= @invoice.total_cents/100.0 %>, 'BTC')
         )
     })
 </script>

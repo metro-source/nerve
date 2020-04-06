@@ -39,6 +39,6 @@ class InvoiceController < ApplicationController
 
     def invoice
         @invoice = Invoice.find_by_slug params[:slug]
-        @bch_address = Rails.configuration.bch_address
+        @btc_address = Rails.configuration.btc_address
     end
 end
