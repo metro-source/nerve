@@ -11,12 +11,11 @@ class InvoiceController < ApplicationController
     def create_invoice
         csv_file = params[:csv].read
         csv_data = CSV.parse csv_file, headers: true
-       
         invoice = Invoice.create(client_name: params[:client_name], slug: SecureRandom.hex(20))
         invoice.total_cents = 0
-
+        
         csv_data.each do |row|
-            item = BilledItem.new(invoice: invoice)
+            item = invoice.billed_items.new
             item.title = row["Title"]
             item.duration = row["Duration"]
 

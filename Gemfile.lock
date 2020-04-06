@@ -49,12 +49,12 @@ GEM
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
-    bcrypt (3.1.12)
+    bcrypt (3.1.13)
     bindex (0.7.0)
     bootsnap (1.4.3)
       msgpack (~> 1.0)
     builder (3.2.3)
-    byebug (11.0.1)
+    byebug (11.1.1)
     capistrano (3.11.0)
       airbrussh (>= 1.0.0)
       i18n
@@ -231,4 +231,4 @@ RUBY VERSION
    ruby 2.4.1p111
 
 BUNDLED WITH
-   1.17.3
+   2.0.1
