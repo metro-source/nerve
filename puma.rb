@@ -1,7 +1,7 @@
 #!/usr/bin/env puma
 
-directory '/usr/app/current'
-rackup "/usr/app/current/config.ru"
+directory '/usr/app'
+rackup "/usr/app/config.ru"
 environment 'production'
 
 tag ''
