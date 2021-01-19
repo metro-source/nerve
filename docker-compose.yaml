@@ -1,0 +1,8 @@
+version: '3.8'
+services: 
+  web:
+    build: .
+    volumes: 
+      - /var/www/nerve/shared/tmp:/usr/app/tmp
+      - /var/www/nerve/db/production.sqlite3:/usr/app/db/production.sqlite3
+    

@@ -153,6 +153,13 @@ body {
     font-size: 1.2em;
     padding: 5px 0;
     font-weight: bold;
+    color: var(--light-green);
+}
+
+.total-time {
+    font-size: 1em;
+    padding: 5px 0;
+    font-weight: bold;
     color: var(--darker-green);
 }
 

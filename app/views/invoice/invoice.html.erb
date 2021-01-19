@@ -38,8 +38,11 @@
 
         <div class="total-display">
             <span class="total-label">
-                Total
+                Total: 
             </span>
+            <div class="total-time">
+                <%= @invoice.total_time %>
+            </div>
             <div class="total-price">
                 <%= number_to_currency(@invoice.total_cents/100.0) %>
             </div>
