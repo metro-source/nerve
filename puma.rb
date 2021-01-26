@@ -12,7 +12,7 @@ stdout_redirect '/usr/app/log/puma.error.log', '/usr/app/log/puma.access.log', t
 
 threads 2,4
 
-bind 'unix://./tmp/nerve-puma.sock'
+bind '127.0.0.1:5555'
 
 workers 0
 
