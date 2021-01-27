@@ -10,7 +10,7 @@ COPY package.json .
 ENV GEM_HOME="/usr/local/bundle"
 ENV PATH $GEM_HOME/bin:$GEM_HOME/gems/bin:$PATH
 
-RUN bundle install
+RUN bundle install --full-index
 
 COPY . .
 # 
