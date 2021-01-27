@@ -15,4 +15,4 @@ COPY . .
 # 
 # CMD ["pumactl", "-F", "puma.rb", "start"]
 
-ENTRYPOINT [ "./entrypoint.sh" ]
+ENTRYPOINT [ "bash", "./entrypoint.sh" ]
