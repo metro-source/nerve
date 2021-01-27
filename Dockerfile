@@ -12,5 +12,7 @@ ENV PATH $GEM_HOME/bin:$GEM_HOME/gems/bin:$PATH
 RUN bundle install
 
 COPY . .
+# 
+# CMD ["pumactl", "-F", "puma.rb", "start"]
 
-CMD ["pumactl", "-F", "puma.rb", "start"]
+ENTRYPOINT [ "./entrypoint.sh" ]
