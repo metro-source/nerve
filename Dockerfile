@@ -13,4 +13,4 @@ RUN bundle install
 
 COPY . .
 
-CMD ["puma", "-F", "puma.rb", "start"]
+CMD ["pumactl", "-F", "puma.rb", "start"]
